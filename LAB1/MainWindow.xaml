@@ -1,0 +1,41 @@
+﻿<Window x:Class="LAB1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        KeyDown="Window_KeyDown">
+
+    <Grid Name="MainGrid">
+
+        <!-- Игровое поле -->
+        <Canvas x:Name="GameCanvas" Background="LightGray" Margin="20">
+            <Rectangle x:Name="Border" Stroke="Black" StrokeThickness="2"
+                       Width="{Binding ElementName=GameCanvas, Path=ActualWidth}"
+                       Height="{Binding ElementName=GameCanvas, Path=ActualHeight}"/>
+            <ComboBox x:Name="ColorComboBox" 
+          SelectionChanged="ColorComboBox_SelectionChanged"
+          Width="120"  Height="30"
+          Margin="30, 30, 0 ,0"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Top">
+                <ComboBoxItem Content="Белый"/>
+                <ComboBoxItem Content="Красный"/>
+                <ComboBoxItem Content="Синий"/>
+                <ComboBoxItem Content="Зеленый"/>
+            </ComboBox>
+        </Canvas>
+        <!-- Меню -->
+        <StackPanel x:Name="MenuPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+            <Button Content="Начать игру" Click="StartGame_Click"/>
+            <Button Content="Сохранить игру" Click="SaveGame_Click"/>
+            <Button Content="Загрузить игру" Click="LoadGame_Click"/>
+            <Button Content="Настройки" Click="Settings_Click"/>
+            <Button Content="Пауза" Click="Pause_Click"/>
+            <Button Content="Выход" Click="PauseExit_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
